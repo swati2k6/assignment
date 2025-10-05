@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resume Service — Landing (Pixel-accurate)</title>
+  <style>
+    /* -----------------------------
+       Global / Reset
+       ----------------------------- */
+    :root{
+      --pink-1:#ffd6dd;
+      --pink-2:#f9a8c0;
+      --accent:#ff2e63; /* strong pink/red */
+      --muted:#6b6b6b;
+      --card-bg:#ffffff;
+      --shadow: 0 6px 20px rgba(15,15,15,0.07);
+      --radius:18px;
+      --max-width:1200px;
+      --container-padding:24px;
+      --text-dark:#111827;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;color:var(--text-dark);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+
+    /* -----------------------------
+       Page container
+       ----------------------------- */
+    .page{
+      width:100%;
+      background:#fff;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+      padding:var(--container-padding);
+      margin:0 auto;
+    }
+
+    /* -----------------------------
+       Header / Nav
+       ----------------------------- */
+    header{
+      width:100%;
+      padding:20px 0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .nav{
+      width:100%;
+      max-width:var(--max-width);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin:0 auto;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px
+    }
+    .logo{
+      width:46px;height:46px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#ff7373);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px
+    }
+    nav ul{display:flex;gap:22px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{font-size:15px;color:#374151}
+    .cta{
+      padding:10px 16px;border-radius:24px;background:linear-gradient(180deg,#ff647d,#ff2e63);color:#fff;font-weight:600;box-shadow:var(--shadow)
+    }
+    .features {
+  padding: 60px 0;
+  background: #fff;
+  text-align: center;
+}
+
+.features h2 {
+  max-width: 900px;
+  margin: 0 auto 50px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* ✅ All 4 in one line */
+  gap: 25px;
+  justify-items: center;
+  align-items: stretch;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  padding: 25px;
+  width: 100%;
+  max-width: 280px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.feature-card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ✅ Responsive adjustments */
+@media (max-width: 992px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .features-grid {
+    grid-template-columns: 1fr; /* 1 per row on phones */
+  }
+}
+
+
+    /* -----------------------------
+       Hero
+       ----------------------------- */
+    .hero{
+      width:100%;
+      margin-top:12px;
+      border-radius:12px;
+      overflow:visible;
+      background: linear-gradient(180deg,var(--pink-1),var(--pink-2));
+      padding:56px 32px;
+      position:relative;
+      box-shadow: var(--shadow);
+    }
+    .hero-inner{display:flex;gap:40px;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto}
+
+    /* left column */
+    .hero-left{flex:1;min-width:260px}
+    .eyebrow{font-size:13px;color:var(--muted);margin-bottom:12px}
+    h1{
+      font-size:48px;line-height:1.03;margin:6px 0 16px;font-weight:800;
+    }
+    .highlight{color:var(--accent);text-decoration:underline; text-decoration-thickness:3px; text-underline-offset:8px}
+    p.lead{color:#3b3b3b;max-width:520px;line-height:1.6}
+
+    .buttons{display:flex;gap:12px;margin-top:20px}
+    .btn{
+      padding:12px 20px;border-radius:28px;border:none;font-weight:700;cursor:pointer
+    }
+    .btn-outline{background:white;border:4px solid rgba(250, 77, 77, 0.12);color:var(--accent)}
+    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 6px 20px rgba(255,46,99,0.18)}
+
+    /* right column */
+    .hero-right{width:480px;flex:0 0 480px;position:relative;display:flex;justify-content:center}
+    .hero-image{
+      width:380px;height:540px;border-radius:260px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;position:relative;overflow:visible
+    }
+    .hero-image img{display:block;width:320px;max-width:100%;height:auto;border-radius:8px}
+
+    /* floating badges */
+    .badge{
+      position:absolute;background:white;padding:12px 14px;border-radius:12px;box-shadow:var(--shadow);display:flex;align-items:center;gap:10px;font-weight:700
+    }
+    .rating{left:24px;top:40%;transform:translateY(-50%);min-width:150px}
+    .rating strong{color:#16a34a;font-size:22px;margin-right:6px}
+    .small-card{right:14px;bottom:-28px;min-width:140px;align-items:center}
+
+    /* -----------------------------
+       What you get / cards
+       ----------------------------- */
+    .section{padding:48px 0}
+    .section h2{text-align:center;font-size:18px;font-weight:700;margin-bottom:26px}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{background:var(--card-bg);padding:22px;border-radius:14px;box-shadow:var(--shadow);min-height:160px}
+    .card h3{margin:8px 0 10px;font-size:16px}
+    .card p{color:var(--muted);font-size:14px;line-height:1.6}
+
+    /* -----------------------------
+       Responsive
+       ----------------------------- */
+    @media (max-width:1100px){
+      h1{font-size:42px}
+      .hero-inner{gap:20px}
+      .hero-right{flex:0 0 380px}
+      .hero-image{width:320px;height:480px}
+    }
+    @media (max-width:900px){
+      .wrap{padding:18px}
+      .hero-inner{flex-direction:column-reverse;align-items:center}
+      .hero-right{width:100%;flex:1;margin-bottom:10px}
+      .hero-left{text-align:center}
+      .hero-left h1{text-align:center}
+      .hero{padding:36px 18px}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .hero-image{width:320px;height:420px}
+      .hero-right{order:1}
+    }
+    @media (max-width:480px){
+      h1{font-size:28px}
+      .cards{grid-template-columns:1fr}
+      nav ul{display:none}
+      .cta{padding:8px 12px;font-size:14px}
+      .hero{padding:24px 12px;border-radius:12px}
+      .hero-image{width:260px;height:340px}
+      .rating{left:10px;top:30%}
+      .small-card{right:10px;bottom:-20px}
+      .brand .logo{width:38px;height:38px}
+    }
+
+    /* small helpers */
+    .muted{color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header>
+      <div class="nav wrap">
+        <div class="brand">
+            <div class="logo">
+                <img src="logo.png" alt="Company Logo">
+            </div>
+          <div>
+            <div style="font-weight:700">COMPANY</div>
+            <div style="font-size:12px;color:var(--muted)">business tagline</div>
+          </div>
+        </div>
+
+        <nav aria-label="Primary navigation">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Services</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <a class="cta" href="#">Get A Quote</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner wrap">
+        <!-- Left column: title, text, CTAs -->
+        <div class="hero-left">
+          <div class="eyebrow">Your Resume</div>
+          <h1>
+            <span style="display:block">Your Resume</span>
+            <span class="highlight">Deserves A Yes</span> <span>Let’s Make It Happen</span>
+          </h1>
+          <p class="lead">If your resume isn't getting responses, it's time for an upgrade. Get an ATS-optimized resume crafted by HR experts to help you land more interviews. Our resumes are designed to get your foot in the door and place your name at the top of the shortlist.</p>
+
+          <div class="buttons">
+            <button class="btn btn-outline">RESUME PACKAGES</button>
+            <button class="btn btn-primary">CONTACT US</button>
+          </div>
+        </div>
+
+        <!-- Right column: hero image with floating badges -->
+        <div class="hero-right" aria-hidden="true">
+          <div class="hero-image">
+            <!-- Replace the image file with the provided PNG. Keep file in the same folder. -->
+            <img src="image1.png" alt="student with backpack" />
+
+            <!-- Floating rating badge -->
+            <div class="badge rating">
+              <strong>4.9</strong>
+              <div style="font-size:13px">
+                <div style="font-weight:700">Instructor Rating</div>
+                <div style="font-size:11px;color:var(--muted);font-weight:600">★★★★★</div>
+              </div>
+            </div>
+
+            <!-- Small card bottom-right -->
+            <div class="badge small-card">
+              <div style="font-size:20px">🎓</div>
+              <div style="text-align:left">
+                <div style="font-weight:800">260+</div>
+                <div style="font-size:12px;color:var(--muted)">Online Resume Created</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you get -->
+    <section class="features" id="what-you-get">
+  <div class="container">
+    <h2>You’re Not Just Another Applicant And Your Resume Shouldn’t Look Like One</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <img src="image2.png" alt="Resume Illustration">
+        <h3>A Resume That Passes ATS Filters</h3>
+        <p>Get a professionally written, keyword-optimized resume that lands in recruiter inboxes—not rejection piles.</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="image3.png" alt="Cover Letter Illustration">
+        <h3>A Cover Letter That Gets Read</h3>
+        <p>Stand out with a cover letter that speaks directly to the role and reflects your strengths.</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="image4.png" alt="LinkedIn Illustration">
+        <h3>A LinkedIn Profile That Works For You</h3>
+        <p>Attract the right eyes, start conversations, and show up in recruiter searches.</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="image5.png" alt="Interview Illustration">
+        <h3>Interview Confidence</h3>
+        <p>Interview preparation with real HR professionals so you speak clearly, confidently, and convincingly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  </div>
+</body>
+</html>
